@@ -1,0 +1,16 @@
+# systemd 服务示例：把路径改成你的项目目录后
+#   sudo cp scripts/bili-clipper.service /etc/systemd/system/
+#   sudo systemctl enable --now bili-clipper
+[Unit]
+Description=Bilibili comment clipper
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/opt/bili-clipper
+ExecStart=/opt/bili-clipper/.venv/bin/python main.py run --loop --daemon
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+# 含账号密码，不要提交
+config.json
+data/
+downloads/
+__pycache__/
+*.pyc
+.venv/
+venv/
